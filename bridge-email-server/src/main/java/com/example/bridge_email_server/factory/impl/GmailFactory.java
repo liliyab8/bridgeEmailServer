@@ -1,0 +1,13 @@
+package com.example.bridge_email_server.factory.impl;
+
+import com.example.bridge_email_server.factory.interfaces.EmailFactory;
+import com.example.bridge_email_server.services.abstr.EmailSender;
+import com.example.bridge_email_server.services.impl.GmailSender;
+
+public class GmailFactory implements EmailFactory {
+    @Override
+    public EmailSender createEmailSender() {
+        return new GmailSender();
+    }
+
+}

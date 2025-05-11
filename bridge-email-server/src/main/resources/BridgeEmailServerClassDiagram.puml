@@ -1,0 +1,38 @@
+@startuml
+'https://plantuml.com/class-diagram
+
+abstract class MessageRequest{
+    -private String from;
+    -private String to;
+    -private String body;
+
+    +String getFrom()
+    +String getTo()
+    +String getBody()
+}
+class EmailMessageRequest{
+}
+
+interface MessageSender{
+    +void send(MessageRequest request)
+}
+
+abstract class EmailSender{
+    +void send(MessageRequest request)
+}
+
+MessageRequest <|-- EmailMessageRequest
+
+MessageSender <|.. EmailSender
+
+EmailSender <|-- GmailSender
+EmailSender <|-- WallaSender
+EmailSender <|-- YahooSender
+
+MessageSender --> MessageRequest
+
+
+
+
+
+@enduml
