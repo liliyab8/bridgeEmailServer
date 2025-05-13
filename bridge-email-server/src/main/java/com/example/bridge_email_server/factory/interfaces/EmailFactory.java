@@ -1,7 +1,8 @@
 package com.example.bridge_email_server.factory.interfaces;
 
-import com.example.bridge_email_server.services.abstr.EmailSender;
+import com.example.bridge_email_server.dto.impl.EmailMessageRequest;
 
 public interface EmailFactory {
-      EmailSender createEmailSender();
+      void createAndRunEmailSender(EmailMessageRequest request);
+      String getSupportedPostfix();
 }

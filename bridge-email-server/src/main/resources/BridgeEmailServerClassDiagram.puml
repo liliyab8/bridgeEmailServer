@@ -13,23 +13,49 @@ abstract class MessageRequest{
 class EmailMessageRequest{
 }
 
-interface MessageSender{
+interface EmailSender{
     +void send(MessageRequest request)
 }
 
-abstract class EmailSender{
+interface EmailFactory{
+    +void send(MessageRequest request)
+}
+class GmailFactory{
+    +void send(MessageRequest request)
+}
+class WallaFactory{
+    +void send(MessageRequest request)
+}
+class YahooFactory{
+    +void send(MessageRequest request)
+}
+
+class GmailSender{
+    +void send(MessageRequest request)
+}
+class WallaSender{
+    +void send(MessageRequest request)
+}
+class YahooSender{
     +void send(MessageRequest request)
 }
 
 MessageRequest <|-- EmailMessageRequest
 
-MessageSender <|.. EmailSender
+EmailFactory <|-- EmailSender
 
-EmailSender <|-- GmailSender
-EmailSender <|-- WallaSender
-EmailSender <|-- YahooSender
+EmailFactory <|.. GmailFactory
+EmailFactory <|.. WallaFactory
+EmailFactory <|.. YahooFactory
 
-MessageSender --> MessageRequest
+
+EmailSender <|.. GmailSender
+EmailSender <|.. WallaSender
+EmailSender <|.. YahooSender
+
+EmailFactory <|-- MessageRequest
+
+
 
 
 

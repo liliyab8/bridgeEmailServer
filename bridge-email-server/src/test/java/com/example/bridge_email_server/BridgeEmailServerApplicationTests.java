@@ -13,4 +13,5 @@ class BridgeEmailServerApplicationTests {
 	@Test
 	void contextLoads() {
 	}
+
 }

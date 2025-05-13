@@ -18,5 +18,4 @@ public class EmailEntity {
     @ManyToOne
     @JoinColumn(name = "employee_id")
     private EmployeeEntity employee;
-
 }
